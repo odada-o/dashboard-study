@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { BsBarChartFill } from 'react-icons/bs';
 
-const MiniState = () => {
+const MiniState = ({ name, value }) => {
   return (
     <Card>
       <div className='flex items-center gap-5'>
@@ -13,8 +13,8 @@ const MiniState = () => {
         </div>
         {/* 텍스트 */}
         <div>
-          <span className='text-primary-60 text-sm'>Earnings</span>
-          <strong className='block text-lg'>$350.4</strong>
+          <span className='text-primary-60 text-sm'>{name}</span>
+          <strong className='block text-lg'>{value}</strong>
           <div className='flex gap-2'>
             <span className='text-secondary text-sm'>+24.5%</span>
             <span className='text-gray-500 text-sm'>Since last month</span>
