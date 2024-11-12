@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import React from 'react';
 import { BsBarChartFill } from 'react-icons/bs';
 import MiniState from './components/miniState';
+import MiniStateGrid from './components/MiniStateGrid';
 
 const HomePage = () => {
   return (
@@ -14,14 +15,7 @@ const HomePage = () => {
       <Header />
       {/* ministate */}
       <main className='inner'>
-        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3'>
-          <MiniState />
-          <MiniState />
-          <MiniState />
-          <MiniState />
-          <MiniState />
-          <MiniState />
-        </div>
+        <MiniStateGrid />
       </main>
       <Footer />
     </div>
