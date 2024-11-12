@@ -5,6 +5,7 @@ import React from 'react';
 import { BsBarChartFill } from 'react-icons/bs';
 import MiniState from './components/miniState';
 import MiniStateGrid from './components/MiniStateGrid';
+import IconBox from '@/components/icon/IconBox';
 
 const HomePage = () => {
   return (
