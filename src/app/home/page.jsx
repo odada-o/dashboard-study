@@ -1,11 +1,9 @@
-import Card from '@/components/card/Card';
+import React from 'react';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
-import React from 'react';
-import { BsBarChartFill } from 'react-icons/bs';
-import MiniState from './components/miniState';
 import MiniStateGrid from './components/MiniStateGrid';
-import IconBox from '@/components/icon/IconBox';
+import { stateData } from '@/data/stateData';
+import Button from '@/components/button/Button';
 
 const HomePage = () => {
   return (
@@ -16,7 +14,9 @@ const HomePage = () => {
       <Header />
       {/* ministate */}
       <main className='inner'>
-        <MiniStateGrid />
+        <Button />
+
+        <MiniStateGrid stateData={stateData} />
       </main>
       <Footer />
     </div>

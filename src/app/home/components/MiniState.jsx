@@ -1,9 +1,5 @@
 import Card from '@/components/card/Card';
-import FlagImage from '@/components/icon/FlagImage';
 import IconBox from '@/components/icon/IconBox';
-import Image from 'next/image';
-import React from 'react';
-import { BsBarChartFill } from 'react-icons/bs';
 
 const MiniState = ({ name, value, startContent, endContent, growth }) => {
   return (
