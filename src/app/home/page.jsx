@@ -14,7 +14,13 @@ const HomePage = () => {
       <Header />
       {/* ministate */}
       <main className='inner'>
-        <Button />
+        <div className='lg:flex'>
+          <div className='bg-red-100 grow'>d</div>
+          <div className='bg-blue-100 grow'>d</div>
+        </div>
+
+        <Button>확인</Button>
+        <Button gray>취소</Button>
 
         <MiniStateGrid stateData={stateData} />
       </main>

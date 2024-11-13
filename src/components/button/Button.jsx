@@ -1,9 +1,16 @@
-import React from 'react';
+'use client';
 
-const Button = () => {
-  return <button className='bg-primary text-white px-5 py-1 rounded hover:bg-secondary'>Button</button>;
+import React from 'react';
+import styled from 'styled-components';
+
+const Button = ({ children, gray }) => {
+  return <ButtonStyled className={` text-white px-5 py-1 rounded hover:bg-secondary ${gray ? 'bg-gray-500' : 'bg-primary'}`}>{children}</ButtonStyled>;
 };
 
-const ButtonStyled = styled.button``;
+const ButtonStyled = styled.button`
+  &::before {
+    content: '🚀 ';
+  }
+`;
 
 export default Button;
