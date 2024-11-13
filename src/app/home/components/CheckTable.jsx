@@ -5,40 +5,7 @@ import { BsThreeDots } from 'react-icons/bs';
 import { ButtonIcon } from '@/components/button/Button';
 import Title from '@/components/title/Title';
 
-const CheckTable = () => {
-  const tableDataCheck = [
-    {
-      name: ['Horizon UI PRO', false],
-      quantity: 2458,
-      date: '12 Jan 2021',
-      progress: 17.5,
-    },
-    {
-      name: ['Horizon UI Free', true],
-      quantity: 1485,
-      date: '21 Feb 2021',
-      progress: 10.8,
-    },
-    {
-      name: ['Weekly Update', true],
-      quantity: 1024,
-      date: '13 Mar 2021',
-      progress: 21.3,
-    },
-    {
-      name: ['Venus 3D Asset', true],
-      quantity: 858,
-      date: '24 Jan 2021',
-      progress: 31.5,
-    },
-    {
-      name: ['Marketplace', false],
-      quantity: 258,
-      date: '24 Oct 2022',
-      progress: 12.2,
-    },
-  ];
-
+const CheckTable = ({ tableDataCheck }) => {
   return (
     <Card>
       <Title title='CheckTable' />
@@ -53,12 +20,20 @@ const CheckTable = () => {
             </tr>
           </thead>
           <tbody>
-            {tableDataCheck.map((item, index) => (
-              <tr key={index}>
-                <th className='py-3'>{item.name[0]}</th>
-                <td>17.5%</td>
-                <td>2458</td>
-                <td>12 Jan 2024</td>
+            {tableDataCheck.map(item => (
+              <tr key={item.id}>
+                <th className='py-3 flex gap-2'>
+                  <input
+                    checked={item.name[1]}
+                    type='checkbox'
+                    name={`check-${item.id}`}
+                    id={`check-${item.id}`}
+                  />
+                  <label htmlFor={`check-${item.id}`}>{item.name[0]}</label>
+                </th>
+                <td>{item.quantity}</td>
+                <td>{item.date}</td>
+                <td>{item.progress}%</td>
               </tr>
             ))}
           </tbody>

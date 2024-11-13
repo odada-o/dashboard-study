@@ -5,6 +5,8 @@ import MiniStateGrid from './components/MiniStateGrid';
 import { stateData } from '@/data/stateData';
 import Button from '@/components/button/Button';
 import CheckTable from './components/CheckTable';
+import { tableDataCheck } from '@/data/tableDataCheck';
+// import { tableDataCheck } from '@/data/tableDataCheck';
 
 const HomePage = () => {
   return (
@@ -17,7 +19,7 @@ const HomePage = () => {
       <main className='inner flex flex-col gap-10'>
         <div className='flex flex-col lg:flex-row gap-4'>
           <div className='grow'>
-            <CheckTable />
+            <CheckTable tableDataCheck={tableDataCheck} />
           </div>
           <div className='grow flex flex-col md:flex-row gap-4'>
             <div className='bg-green-100 grow'>g</div>
