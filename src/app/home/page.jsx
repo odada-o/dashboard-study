@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import MiniStateGrid from './components/MiniStateGrid';
 import { stateData } from '@/data/stateData';
 import Button from '@/components/button/Button';
+import CheckTable from './components/CheckTable';
 
 const HomePage = () => {
   return (
@@ -15,8 +16,10 @@ const HomePage = () => {
       {/* ministate */}
       <main className='inner flex flex-col gap-10'>
         <div className='flex flex-col lg:flex-row gap-4'>
-          <div className='bg-red-100 grow'>d</div>
-          <div className='grow flex flex-col gap-4'>
+          <div className='grow'>
+            <CheckTable />
+          </div>
+          <div className='grow flex flex-col md:flex-row gap-4'>
             <div className='bg-green-100 grow'>g</div>
             <div className='bg-green-100 grow'>g</div>
           </div>
