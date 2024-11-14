@@ -3,6 +3,10 @@
 import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa6';
 import { IoCloseSharp } from 'react-icons/io5';
+import { GiGooeyMolecule } from 'react-icons/gi';
+import { SiGumtree } from 'react-icons/si';
+import { MdOutlineOtherHouses } from 'react-icons/md';
+import { SiTreehouse } from 'react-icons/si';
 
 const StatePage = () => {
   // const [상태이름, 상태변경함수] = useState(초기);
@@ -24,8 +28,30 @@ const StatePage = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const sortArr = [
+    { value: '컬처 아이콘', icon: <GiGooeyMolecule /> },
+    { value: '한적한 시골', icon: <SiGumtree /> },
+    { value: '편안한 숙소', icon: <MdOutlineOtherHouses /> },
+    { value: '숙소', icon: <SiTreehouse /> },
+  ];
+
   return (
     <div>
+      <div className='flex gap-3'>
+        {sortArr.map((item, index) => (
+          <button
+            key={index}
+            className='py-2'
+          >
+            <GiGooeyMolecule />
+            {item.value}
+          </button>
+        ))}
+      </div>
+      {/* tab content */}
+      <div>선택된 탭 내용</div>
+
+      <hr />
       <button
         onClick={() => {
           setIsOpen(!isOpen);
