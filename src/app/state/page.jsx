@@ -35,22 +35,33 @@ const StatePage = () => {
     { value: '숙소', icon: <SiTreehouse /> },
   ];
 
-  return (
-    <div>
-      <div className='flex gap-3 justify-center'>
-        {sortArr.map((item, index) => (
-          <button
-            key={index}
-            className='py-2 flex items-center flex-col'
-          >
-            <GiGooeyMolecule />
-            {item.value}
-          </button>
-        ))}
-      </div>
-      {/* tab content */}
-      <div>선택된 탭 내용</div>
+  const [selected, setSelected] = useState(0);
 
+  return (
+    <>
+      <div>
+        <div className='flex gap-5 justify-center'>
+          {sortArr.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setSelected(index);
+              }}
+              className={`py-2 ${selected === index ? 'bg-primary' : ''}`}
+            >
+              {item.icon}
+              {item.value}
+            </button>
+          ))}
+        </div>
+        {/* tab content */}
+        <div>선택된 탭 내용</div>
+      </div>
+
+      <hr />
+      <hr />
+      <hr />
+      <hr />
       <hr />
       <button
         onClick={() => {
@@ -74,7 +85,7 @@ const StatePage = () => {
         이름 변경
       </button>
       <h2>useState</h2>
-    </div>
+    </>
   );
 };
 

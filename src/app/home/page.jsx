@@ -8,7 +8,6 @@ import { stateData } from '@/data/stateData';
 import Button from '@/components/button/Button';
 import CheckTable from './components/CheckTable';
 import { tableDataCheck } from '@/data/tableDataCheck';
-// import { tableDataCheck } from '@/data/tableDataCheck';
 
 const HomePage = () => {
   return (
@@ -44,7 +43,7 @@ const HomePage = () => {
         </div> */}
 
         {/* ministate */}
-        {/* <MiniStateGrid stateData={stateData} /> */}
+        <MiniStateGrid stateData={stateData} />
       </main>
       <Footer />
     </div>
