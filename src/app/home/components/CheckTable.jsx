@@ -23,12 +23,12 @@ const CheckTable = ({ tableDataCheck }) => {
             {tableDataCheck.map(item => (
               <tr key={item.id}>
                 <th className='py-3 flex gap-2'>
-                  <input
+                  {/* <input
                     checked={item.name[1]}
                     type='checkbox'
                     name={`check-${item.id}`}
                     id={`check-${item.id}`}
-                  />
+                  /> */}
                   <label htmlFor={`check-${item.id}`}>{item.name[0]}</label>
                 </th>
                 <td>{item.quantity}</td>
