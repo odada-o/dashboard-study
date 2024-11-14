@@ -3,10 +3,19 @@
 import React from 'react';
 
 const EventPage = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('제출');
+  };
+
+  // preventDefault 란?
+  // 1. a태그를 눌렀을 때도 링크가 작동하지 않도록 하고 싶을 때
+  // 2. 버튼을 눌렀을 때 페이지가 새로고침 되는 것을 막고 싶을 때
+
   return (
     <div>
       {/* 폼 이벤트 */}
-      <form>
+      <form onSubmit={handleSubmit}>
         {/* 입력 변경 */}
         <input
           className='bg-gray-300'
@@ -23,6 +32,17 @@ const EventPage = () => {
             console.log('체크', e.target.checked);
           }}
         />
+
+        <select
+          onChange={e => {
+            console.log('선택', e.target.value);
+          }}
+        >
+          <option value='option1'>옵션 1</option>
+          <option value='option2'>옵션 2</option>
+        </select>
+
+        <button type='submit'>제출</button>
       </form>
       <h2>마우스 이벤트</h2>
 
