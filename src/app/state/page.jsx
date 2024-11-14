@@ -37,11 +37,11 @@ const StatePage = () => {
 
   return (
     <div>
-      <div className='flex gap-3'>
+      <div className='flex gap-3 justify-center'>
         {sortArr.map((item, index) => (
           <button
             key={index}
-            className='py-2'
+            className='py-2 flex items-center flex-col'
           >
             <GiGooeyMolecule />
             {item.value}
