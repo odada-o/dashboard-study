@@ -37,19 +37,27 @@ const StatePage = () => {
 
   const [selected, setSelected] = useState(0);
 
+  const [text, setText] = useState('');
+
+  const handleChange = (e) => {
+    setText(e.target.value)
+      console.log(e.target.value)
+  }
+
+
   return (
-      <div className='py-20 flex flex-col items-center gap-10'>
-        <div>
+    <div className='py-20 flex flex-col items-center gap-10'>
+      <div>
         <input
           type='text'
           placeholder='안녕하세요.'
-          value='안녕하세요.'
+          value={text}
+          onChange={handleChange}
           className='bg-red-200 '
         />
-        <p>안녕하세요.</p>
-        </div>
-
-          <div>
+        <p>{text}</p>
+      </div>
+      <div>
         <div className='flex gap-5 justify-center'>
           {sortArr.map((item, index) => (
             <button
@@ -73,31 +81,30 @@ const StatePage = () => {
             {item.value} 내용
           </div>
         ))}
-</div>
-div     
-        <button
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
-        >
-          {/* {isOpen ? 'x' : '='} */}
-          {isOpen ? <IoCloseSharp /> : <FaBars />}
-        </button>
-        <hr />
-        <button onClick={decrease}>감소</button>
-        <strong>{number}</strong>
-        <button onClick={increase}>증가</button>
-
-        <hr />
-        <strong className='block'>{name}</strong>
-        <button
-          onClick={chageName}
-          className='p-1 bg-primary-30'
-        >
-          이름 변경
-        </button>
-        <h2>useState</h2>
       </div>
+      div
+      <button
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+      >
+        {/* {isOpen ? 'x' : '='} */}
+        {isOpen ? <IoCloseSharp /> : <FaBars />}
+      </button>
+      <hr />
+      <button onClick={decrease}>감소</button>
+      <strong>{number}</strong>
+      <button onClick={increase}>증가</button>
+      <hr />
+      <strong className='block'>{name}</strong>
+      <button
+        onClick={chageName}
+        className='p-1 bg-primary-30'
+      >
+        이름 변경
+      </button>
+      <h2>useState</h2>
+    </div>
   );
 };
 
