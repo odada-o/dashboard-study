@@ -38,8 +38,18 @@ const StatePage = () => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <>
-      <div>
+      <div className='py-20 flex flex-col items-center gap-10'>
+        <div>
+        <input
+          type='text'
+          placeholder='안녕하세요.'
+          value='안녕하세요.'
+          className='bg-red-200 '
+        />
+        <p>안녕하세요.</p>
+        </div>
+
+          <div>
         <div className='flex gap-5 justify-center'>
           {sortArr.map((item, index) => (
             <button
@@ -55,37 +65,39 @@ const StatePage = () => {
           ))}
         </div>
         {/* tab content */}
-        <div>선택된 탭 내용</div>
+        {sortArr.map((item, index) => (
+          <div
+            key={index}
+            className={`w-full p-5 min-h-40 ${selected === index ? 'block' : 'hidden px-2 py-2'}`}
+          >
+            {item.value} 내용
+          </div>
+        ))}
+</div>
+div     
+        <button
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+        >
+          {/* {isOpen ? 'x' : '='} */}
+          {isOpen ? <IoCloseSharp /> : <FaBars />}
+        </button>
+        <hr />
+        <button onClick={decrease}>감소</button>
+        <strong>{number}</strong>
+        <button onClick={increase}>증가</button>
+
+        <hr />
+        <strong className='block'>{name}</strong>
+        <button
+          onClick={chageName}
+          className='p-1 bg-primary-30'
+        >
+          이름 변경
+        </button>
+        <h2>useState</h2>
       </div>
-
-      <hr />
-      <hr />
-      <hr />
-      <hr />
-      <hr />
-      <button
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
-      >
-        {/* {isOpen ? 'x' : '='} */}
-        {isOpen ? <IoCloseSharp /> : <FaBars />}
-      </button>
-      <hr />
-      <button onClick={decrease}>감소</button>
-      <strong>{number}</strong>
-      <button onClick={increase}>증가</button>
-
-      <hr />
-      <strong className='block'>{name}</strong>
-      <button
-        onClick={chageName}
-        className='p-1 bg-primary-30'
-      >
-        이름 변경
-      </button>
-      <h2>useState</h2>
-    </>
   );
 };
 
