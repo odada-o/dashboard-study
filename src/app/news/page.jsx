@@ -13,9 +13,6 @@ const NewsPage = () => {
     const fetchNews = async () => {
       try {
         const response = await axios.get('https://content.guardianapis.com/search?api-key=cb5c8f1d-41e3-4481-b13e-7b075cf3e537&show-fields=thumbnail,headline,byline,bodyText')
-        // const data = await res.json()
-
-        // response.data에 이미 파싱된 데이터가 있음
         console.log(response.data)
         setNews(response.data.response.results)
       } catch (error) {
