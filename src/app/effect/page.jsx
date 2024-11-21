@@ -18,6 +18,7 @@ const EffectPage = () => {
       document.body.style.backgroundColor = ''
     }
   }, [])
+  
   // 업데이트시에만 실행
   useEffect(() => {
     console.log('업데이트시에만 실행')
