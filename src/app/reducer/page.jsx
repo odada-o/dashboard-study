@@ -10,6 +10,8 @@ const setCount = (state, action) => {
   switch (action.type) {
     case 'INCREMENT':
       return {counter: state.counter + 1}
+    case 'DECREMENT':
+      return {counter: state.counter - 1}
     default:
       return state
   }
@@ -20,16 +22,16 @@ const ReducerPage = () => {
 
   // const [현재상태, 파견함수] = useReducer(상태변경함수, 초기값)
   const [count, dispatch] = useReducer(setCount, {
-    counter: 0
+    counter: 0,
   })
 
   return (
     <div className='flex justify-center gap-4 py-5 text-4xl'>
         <button 
-          onClick={() => {dispatch({type: 'INCREMENT'})}}>-</button>
+          onClick={() => {dispatch({type: 'DECREMENT'})}}>-</button>
         <strong>{count.counter}</strong>
         <button 
-          onClick={() => {}}>+</button>
+          onClick={() => {dispatch({type: 'INCREMENT'})}}>+</button>
     </div>
   )
 }
