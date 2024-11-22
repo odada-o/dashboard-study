@@ -12,6 +12,8 @@ const setCount = (state, action) => {
       return {counter: state.counter + 1}
     case 'DECREMENT':
       return {counter: state.counter - 1}
+    case 'RESET':
+      return {counter: 0}
     default:
       return state
   }
@@ -32,6 +34,8 @@ const ReducerPage = () => {
         <strong>{count.counter}</strong>
         <button 
           onClick={() => {dispatch({type: 'INCREMENT'})}}>+</button>
+
+          <button onClick={() => {dispatch({type: 'RESET'})}}>reset</button>
     </div>
   )
 }
