@@ -1,20 +1,35 @@
-import React, { useState } from 'react'
+"use client"
+import React, { useReducer, useState } from 'react'
 
 const buttonStyle = 'px-4 py-2 bg-blue-500 text-white rounded'
 
-const ReducerPage = () => {
+// count를 변경해서 다시 보내주는 함수
+const setCount = (state, action) => {
+  // const action = {type: 'INCREMENT'}
+  // switch문으로 action.type에 따라 다른 동작을 수행
+  switch (action.type) {
+    case 'INCREMENT':
+      return {counter: state.counter + 1}
+    default:
+      return state
+  }
+}
 
-  const [count, setCount] = useState(0)
+const ReducerPage = () => {
+  // const [count, setCount] = useState(0)
+
+  // const [현재상태, 파견함수] = useReducer(상태변경함수, 초기값)
+  const [count, dispatch] = useReducer(setCount, {
+    counter: 0
+  })
 
   return (
     <div className='flex justify-center gap-4 py-5 text-4xl'>
         <button 
-          onClick={() => {setCount(count - 1)}} 
-          className={buttonStyle}>-</button>
-        <strong className=' text-red-600'>{count}</strong>
+          onClick={() => {dispatch({type: 'INCREMENT'})}}>-</button>
+        <strong>{count.counter}</strong>
         <button 
-          onClick={() => {setCount(count + 1)}}  
-          className={buttonStyle}>+</button>
+          onClick={() => {}}>+</button>
     </div>
   )
 }
