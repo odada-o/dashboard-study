@@ -34,13 +34,18 @@ const NewsPage = () => {
     fetchNews()
   }, [])
 
+  // 카테고리 선택시 뉴스 필터링
+  const filteredNews = 
+    selectedCategory === '' 
+      ? news 
+      : news.filter((item) => {return item.sectionId === selectedCategory}) 
 
   return (
     <div>
       <h2>뉴스</h2>
       {/* 카테코리 */}
       <div className='flex gap-4 px-5'>
-        <button>전체</button>
+        <button onClick={() => {setSelectedCategory("")}}>전체</button>
         {/* [카테고리명, 카테고리명] */}
         {categories.map((item) => (
           <button key={item}
@@ -50,7 +55,7 @@ const NewsPage = () => {
       </div>
       {/* 뉴스 리스트 */}
       <ul className='divide-y px-5'>
-        {news.map((item) => (
+        {filteredNews.map((item) => (
           <li key={item.id}>
             <Link href={item.webUrl} className='py-3 flex gap-4'>
               <Image 
