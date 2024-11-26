@@ -1,6 +1,7 @@
 "use client"
 
 import Like from "@/components/like/Like"
+import User from "@/components/user/User"
 
 const ContextPage = () => {
   return (
@@ -9,6 +10,7 @@ const ContextPage = () => {
       <Like />
 
       {/* data 컴포넌트 */}
+      <User />
 
     </div>
   )
