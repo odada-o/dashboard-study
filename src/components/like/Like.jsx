@@ -1,8 +1,20 @@
+import { BtnProvider, useBtn } from '@/contexts/BtnContext'
 import classNames from 'classnames'
 import { Heart } from 'lucide-react'
-import React, { useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
+
+const Like = () => {
+  return (
+    <>
+      <BtnLike />
+      <BtnFollow />
+    </>
+  )
+}
 
 const BtnLike = () => {
+  const {isLiked, toggleLike} = useBtn()
+
   return (
     <button 
       onClick={toggleLike}>
@@ -10,25 +22,14 @@ const BtnLike = () => {
     </button>
   )
 }
-const BtnFollow = ({ isLiked, toggleLike }) => {
+const BtnFollow = () => {
+  const {isLiked, toggleLike} = useBtn()
   return (
       <button 
         onClick={toggleLike}
         className={classNames(
         isLiked ? 'bg-gray-400' : 'bg-green-500'
       )}>+팔로우</button>
-  )
-}
-
-const Like = () => {
-  const [isLiked, setIsLiked] = useState(false)
-  const toggleLike = () => {setIsLiked(!isLiked)}
-
-  return (
-    <div>
-      <BtnLike />
-      <BtnFollow isLiked={isLiked} toggleLike={toggleLike} />
-    </div>
   )
 }
 
