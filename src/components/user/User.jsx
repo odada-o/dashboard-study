@@ -1,30 +1,21 @@
+import { UserProvider, useUser } from '@/contexts/UserContext';
 import React, { createContext, useContext } from 'react'
 
-// 생성
-const UserContext = createContext();
-
 const User = () => {
-  const userData = {
-    name: "김철수",
-    email: "cheolsu@example.com",
-    age: 25,
-    location: "서울"
-  };
-
   return (
     // 보급
-    <UserContext.Provider value={userData}>
+    <UserProvider>
       <h2>사용자 정보</h2>
       <UserProfile />
       <hr />
       <UserProfile />
-    </UserContext.Provider>
+    </UserProvider>
   )
 }
 
 const UserProfile = () => {
   // 사용
-  const {name, email, age, location} = useContext(UserContext);
+  const {name, email, age, location} = useUser();
   return (
     <div>
       <dl>
@@ -42,7 +33,7 @@ const UserProfile = () => {
 
 const UserInfo = () => {
   // 사용
-  const {age, location} = useContext(UserContext);
+  const {age, location} = useUser();
   return (
     <div>
       <dl>
