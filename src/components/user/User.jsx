@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { createContext, useContext } from 'react'
+
+// 생성
+const UserContext = createContext();
 
 const User = () => {
-
   const userData = {
     name: "김철수",
     email: "cheolsu@example.com",
@@ -10,22 +12,46 @@ const User = () => {
   };
 
   return (
+    // 보급
+    <UserContext.Provider value={userData}>
+      <h2>사용자 정보</h2>
+      <UserProfile />
+      <hr />
+      <UserProfile />
+    </UserContext.Provider>
+  )
+}
+
+const UserProfile = () => {
+  // 사용
+  const {name, email, age, location} = useContext(UserContext);
+  return (
     <div>
       <dl>
         <dt>이름</dt>
-        <dd>김철이</dd>
+        <dd>{name}</dd>
       </dl>
       <dl>
         <dt>이메일</dt>
-        <dd>eehd@mail.com</dd>
+        <dd>{email}</dd>
       </dl>
+      <UserInfo age={age} location={location} />
+    </div>
+  )
+}
+
+const UserInfo = () => {
+  // 사용
+  const {age, location} = useContext(UserContext);
+  return (
+    <div>
       <dl>
         <dt>나이</dt>
-        <dd>24</dd>
+        <dd>{age}</dd>
       </dl>
       <dl>
         <dt>주소</dt>
-        <dd>서울특별시 서초구</dd>
+        <dd>{location}</dd>
       </dl>
     </div>
   )
